@@ -4,11 +4,10 @@
 
 ## Run it
 
-Requirements: Python 3.10+ and [Ollama](https://ollama.com/) for AI generation.
+Requirements: Python 3.10+ and [Ollama](https://ollama.com/) with Gemma 4 for AI generation.
 
 ```powershell
 ollama pull gemma4:latest
-ollama serve
 python app.py
 ```
 
@@ -22,9 +21,11 @@ Open <http://127.0.0.1:8000>. The app starts with a clearly labeled sample memor
 - Exports a printable, self-contained HTML keepsake. No account, cloud database, analytics, or remote AI API.
 - Binds only to `127.0.0.1` so the app is not exposed to your network.
 
+If Ollama is not already running as a background service, start it in another terminal with `ollama serve`. The browser interface and memory store work without Ollama; only remembrance generation needs the model.
+
 ## Privacy boundary
 
-Memory Lantern itself sends no data over the internet. The browser talks to the local Python server, which talks only to Ollama at `localhost:11434`. Ollama may need internet access once to download Gemma; after the model is installed, generation can work offline. You can inspect and back up the plain JSON file yourself.
+Memory Lantern itself sends no data over the internet. It uses system fonts, no analytics, and makes no external requests. The browser talks to the local Python server, which talks only to Ollama at `localhost:11434`. Ollama may need internet access once to download Gemma; after the model is installed, generation can work offline. You can inspect, edit, back up, or delete the plain JSON file yourself. Always review generated wording before sharing; an open model can still make mistakes.
 
 ## Design choice
 

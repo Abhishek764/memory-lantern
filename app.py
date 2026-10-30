@@ -132,10 +132,11 @@ class Handler(BaseHTTPRequestHandler):
                 for i, m in enumerate(chosen)
             )
             system_prompt = (
-                "Write a warm remembrance using only the provided family notes. Do not invent events, "
-                "emotions, relationships, quotations, or biographical details. Do not write as if you "
-                "are the person who died. If the notes are sparse, stay brief. Write 100–160 words, "
-                "then a final line beginning SOURCES: with the bracketed note numbers used."
+                "Write a concise remembrance using only concrete facts from the provided family notes. "
+                "Do not infer emotions, relationships, quotations, importance, or biographical details. "
+                "Do not write as if you are the person who died. For a single note, use 2–4 sentences; "
+                "for several notes, use at most 6 sentences. End with SOURCES: and the bracketed note "
+                "numbers used."
             )
             req = urllib.request.Request("http://127.0.0.1:11434/api/chat", data=json.dumps({
                 "model": "gemma4:latest",
