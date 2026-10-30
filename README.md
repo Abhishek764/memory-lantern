@@ -11,12 +11,12 @@ ollama pull gemma4:latest
 python app.py
 ```
 
-Open <http://127.0.0.1:8000>. The app starts with a clearly labeled sample memory so you can explore before adding real stories. It works without Ollama in **Keepsake mode**: you can add, edit, search, and export memories; AI writing is available once the model is running.
+Open <http://127.0.0.1:8000>. The app starts with a clearly labeled sample memory so you can explore before adding real stories. It works without Ollama in **Keepsake mode**: you can add, edit, delete, and export memories; AI writing is available once the model is running.
 
 ## What it does
 
 - Saves each memory as a dated, attributed note in `data/memories.json` on this computer.
-- Uses Gemma 3 through Ollama's local API to draft a remembrance from the saved notes you select.
+- Uses Gemma 4 through Ollama's local API to draft a remembrance from the saved notes you select.
 - Shows which saved notes grounded each generated paragraph; the model is instructed to leave gaps as gaps instead of inventing facts.
 - Exports a printable, self-contained HTML keepsake. No account, cloud database, analytics, or remote AI API.
 - Binds only to `127.0.0.1` so the app is not exposed to your network.
