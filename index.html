@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f0e6">
+  <meta name="description" content="A private, local-first memory book, shaped with Gemma on your own computer.">
+  <title>Memory Lantern — Keep the little things glowing</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/offline.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Memory Lantern home"><span class="brand-mark">✳</span><span>memory lantern</span></a>
+    <div class="privacy-pill"><span class="dot"></span><span id="connection-label">Local keepsake mode</span></div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span>✺</span> A quiet place for what stays</p>
+        <h1>Keep the little<br>things <em>glowing.</em></h1>
+        <p class="intro">A favorite recipe. The way they laughed at their own jokes. Leave a lantern lit for the memories you don't want time to blur.</p>
+        <div class="hero-meta"><span class="lantern-icon">◉</span><span>Private by design. Stored on this device.</span></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="moon"></div><div class="halo halo-one"></div><div class="halo halo-two"></div>
+        <div class="lantern"><div class="lantern-cap"></div><div class="lantern-glass"><span>✦</span></div><div class="lantern-base"></div></div>
+        <div class="art-caption">one memory<br>at a time</div>
+      </div>
+    </section>
+
+    <div class="content-grid">
+      <section class="memories-panel">
+        <div class="section-heading">
+          <div><p class="eyebrow">THE KEEPSAKE BOX</p><h2>Your memories</h2></div>
+          <span id="memory-count" class="count">0 notes</span>
+        </div>
+        <div id="memory-list" class="memory-list" aria-live="polite"></div>
+        <button id="add-memory" class="add-button" type="button"><span>＋</span> Add a small thing</button>
+        <div class="local-note"><span>⌂</span><p>Your notes live in a plain file on your computer. No account, no cloud, no one listening in.</p></div>
+      </section>
+
+      <aside class="lantern-panel">
+        <div class="panel-top"><span class="panel-icon">✳</span><span class="panel-kicker">MAKE SOMETHING TO KEEP</span></div>
+        <h2>A little light,<br>from your words.</h2>
+        <p class="panel-copy">Choose a few memories. Gemma will weave only what you've saved into a remembrance you can keep.</p>
+        <div class="selection-row"><span id="selected-count">0 memories selected</span><button type="button" id="select-all" class="text-button">Select all</button></div>
+        <button id="illuminate" class="illuminate-button" type="button" disabled><span>✦</span> Light the lantern</button>
+        <div class="model-status" id="model-status"><span class="status-dot"></span><span>Checking local AI…</span></div>
+        <div class="safe-note"><span>♡</span><p>It won't pretend to be them, or fill the quiet with things that never happened.</p></div>
+        <div id="result-wrap" class="result-wrap" hidden>
+          <div class="result-label"><span>YOUR REMEMBRANCE</span><button type="button" id="copy-result" class="text-button">Copy</button></div>
+          <blockquote id="result-text"></blockquote>
+          <div id="result-sources" class="result-sources"></div>
+          <button type="button" id="export-result" class="export-button">↗ &nbsp; Save as a printable keepsake</button>
+        </div>
+      </aside>
+    </div>
+    <footer><span>Memory Lantern</span><span>Held here, by you. <span class="footer-flower">✿</span></span></footer>
+  </main>
+
+  <dialog id="memory-dialog">
+    <form id="memory-form" method="dialog">
+      <div class="dialog-head"><div><p class="eyebrow">ADD TO THE KEEPSAKE BOX</p><h2>A small thing worth keeping.</h2></div><button type="button" id="close-dialog" class="close-button" aria-label="Close">×</button></div>
+      <label>Who is this memory of?<input name="person" maxlength="80" placeholder="e.g. Amma" required></label>
+      <label>Give it a little title<input name="title" maxlength="120" placeholder="e.g. The Sunday lemon rice" required></label>
+      <label>Tell the story<textarea name="story" maxlength="5000" rows="4" placeholder="Write it the way you remember it…" required></textarea></label>
+      <label>One more detail, if you'd like<textarea name="details" maxlength="1000" rows="2" placeholder="A smell, a place, a small habit…"></textarea></label>
+      <div id="form-error" class="form-error" role="alert"></div>
+      <button class="illuminate-button save-button" type="submit">Save this memory <span>✦</span></button>
+    </form>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="/app.js" defer></script>
+</body>
+</html>

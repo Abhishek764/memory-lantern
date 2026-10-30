@@ -1,0 +1,13 @@
+:root {
+  --serif: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+.edit-button {
+  border: 0;
+  background: none;
+  color: #a47b5c;
+  font: 9px var(--sans);
+  padding: 0;
+  cursor: pointer;
+}
+.edit-button:hover { text-decoration: underline; }
